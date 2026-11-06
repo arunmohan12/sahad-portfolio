@@ -47,7 +47,7 @@
 
                     <div class="pp-hero-btn d-flex flex-wrap gap-2">
 
-                        <a class="tp-btn text-black bg-white mb-10" href="#graphics-creatives">
+                        <a class="tp-btn text-black bg-white mb-10" href="#cinematic-videos">
                             <span>
                                 <span class="text-1">Explore My Work</span>
                                 <span class="text-2">Explore My Work</span>
