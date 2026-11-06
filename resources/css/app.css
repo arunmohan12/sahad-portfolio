@@ -16,3 +16,482 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+.pp-about-awards {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.pp-about-awards > img.rotate-infinite {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pp-about-awards .mp-hero-w-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 35%;
+}
+
+
+
+
+
+/* =========================================
+   YouTube Playlist Section
+========================================= */
+
+.pp-youtube-area {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section heading */
+
+.pp-youtube-heading {
+    margin-bottom: 0;
+}
+
+.pp-youtube-subtitle {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.pp-youtube-heading h2 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.pp-youtube-heading p {
+    margin-bottom: 0;
+    color: #999;
+}
+
+/* Main video */
+
+.pp-youtube-main {
+    width: 100%;
+}
+
+.pp-youtube-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #111;
+    border-radius: 8px;
+}
+
+.pp-youtube-main-thumbnail {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main play button */
+
+.pp-youtube-preview-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    border: 0;
+    border-radius: 50%;
+    background: #ff0033;
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pp-youtube-preview-play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #cc0029;
+}
+
+/* YouTube iframe */
+
+.pp-youtube-player iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Main video information */
+
+.pp-youtube-main-info {
+    padding-top: 25px;
+}
+
+.pp-youtube-main-info h3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.pp-youtube-main-info > p {
+    margin-bottom: 0;
+    color: #999;
+    line-height: 1.7;
+}
+
+/* Channel, views and likes */
+
+.pp-youtube-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Channel profile */
+
+.pp-youtube-channel {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.pp-youtube-channel img {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #252525;
+}
+
+/* Views and likes */
+
+.pp-youtube-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #999;
+}
+
+.pp-youtube-stat i {
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Playlist container */
+
+.pp-youtube-playlist {
+    height: 100%;
+    padding: 22px;
+    background: #171717;
+    border-radius: 8px;
+}
+
+/* Playlist heading */
+
+.pp-youtube-playlist-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pp-youtube-playlist-heading h4 {
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.pp-youtube-playlist-heading span {
+    color: #999;
+    font-size: 13px;
+}
+
+/* Playlist scrolling */
+
+.pp-youtube-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 490px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.pp-youtube-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.pp-youtube-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pp-youtube-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+/* Playlist item */
+
+.pp-youtube-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pp-youtube-item:hover,
+.pp-youtube-item.active {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Playlist thumbnails */
+
+.pp-youtube-thumb {
+    position: relative;
+    flex: 0 0 125px;
+    width: 125px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #222;
+}
+
+.pp-youtube-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.pp-youtube-item:hover .pp-youtube-thumb img {
+    transform: scale(1.06);
+}
+
+/* Playlist play icon */
+
+.pp-youtube-play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pp-youtube-item:hover .pp-youtube-play-icon,
+.pp-youtube-item.active .pp-youtube-play-icon {
+    opacity: 1;
+}
+
+/* Playlist video titles */
+
+.pp-youtube-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.pp-youtube-item-content h5 {
+    display: -webkit-box;
+    margin-bottom: 0;
+    overflow: hidden;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    transition: color 0.3s ease;
+}
+
+/* Responsive */
+
+@media (max-width: 991px) {
+    .pp-youtube-playlist {
+        margin-top: 35px;
+    }
+
+    .pp-youtube-list {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 575px) {
+    .pp-youtube-area {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .pp-youtube-main-info h3 {
+        font-size: 19px;
+    }
+
+    .pp-youtube-meta {
+        gap: 14px;
+        font-size: 12px;
+    }
+
+    .pp-youtube-channel img {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+
+    .pp-youtube-playlist {
+        padding: 15px;
+    }
+
+    .pp-youtube-thumb {
+        flex-basis: 105px;
+        width: 105px;
+    }
+
+    .pp-youtube-item {
+        gap: 10px;
+    }
+
+    .pp-youtube-preview-play {
+        width: 55px;
+        height: 55px;
+        font-size: 27px;
+    }
+}
+
+/* Playlist channel name */
+
+.pp-youtube-item-channel {
+    margin-top: 5px;
+    color: #999;
+    font-size: 11px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Playlist video statistics */
+
+.pp-youtube-item-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 7px;
+    color: #888;
+    font-size: 11px;
+}
+
+.pp-youtube-item-stats span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pp-youtube-item-stats i {
+    color: #999;
+    font-size: 11px;
+}
+
+/* Playlist title adjustment */
+
+.pp-youtube-item-content h5 {
+    font-size: 13px;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+}
+
+/* Responsive */
+
+@media (max-width: 575px) {
+    .pp-youtube-item-channel,
+    .pp-youtube-item-stats {
+        font-size: 10px;
+    }
+
+    .pp-youtube-item-stats {
+        gap: 9px;
+    }
+}
+
+
+/* Playlist channel profile */
+
+.pp-youtube-item-channel {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 6px;
+    min-width: 0;
+    color: #999;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.pp-youtube-item-channel img {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #252525;
+}
+
+.pp-youtube-item-channel span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tp-footer-copyright-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.tp-footer-copyright-social a svg {
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: middle;
+}

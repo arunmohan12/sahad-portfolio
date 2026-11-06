@@ -30,7 +30,14 @@
 <meta name="twitter:image" content="{{ asset('assets/images/og-image.jpg') }}">
 
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-
+@if (!empty($siteSetting?->hero_image))
+    <link
+        rel="preload"
+        as="image"
+        href="{{ Storage::disk('s3')->url($siteSetting->hero_image) }}"
+        fetchpriority="high"
+    >
+@endif
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <!-- Person Structured Data -->

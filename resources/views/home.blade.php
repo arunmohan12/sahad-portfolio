@@ -9,8 +9,13 @@
 
         @include('sections.hero')
         @include('sections.about')
-         @include('sections.creatives')
+
+        @include('sections.what-i-do')
+        @include('sections.skills')
+        @include('sections.creatives')
         @include('sections.experience')
+        @include('sections.youtube-playlist')
+        @include('sections.footer')
 
     </div>
 </div>

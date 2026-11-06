@@ -6832,8 +6832,8 @@ body.tp-magic-cursor #magic-cursor {
   }
 }
 .pp-about-awards {
-  width: 166px;
-  height: 166px;
+  width: 126px;
+  height: 126px;
   border: 1px solid rgba(38, 38, 38, 0.1);
   border-radius: 100px;
   text-align: center;
@@ -6928,7 +6928,7 @@ body.tp-magic-cursor #magic-cursor {
 }
 
 .about-me-spacing {
-  padding-top: 330px;
+  padding-top: 200px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px) {
   .about-me-spacing {

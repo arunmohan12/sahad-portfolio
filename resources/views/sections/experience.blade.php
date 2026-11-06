@@ -1,5 +1,5 @@
 
-<div class="about-me-resume-area pt-115" id="experience">
+<div class="about-me-resume-area pt-115" id="journey-so-far">
     <div class="container">
         <div class="row">
 
