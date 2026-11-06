@@ -31,6 +31,7 @@ class HomeController extends Controller
                 'reels',
                 'real-estate-videos',
                 'ai-videos',
+                'events',
             ])
             ->where('is_active', true)
             ->whereHas('category', function ($query) {

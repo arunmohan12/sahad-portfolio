@@ -65,7 +65,11 @@
                         data-reel-filter="real-estate-videos">
                         Real Estate
                     </button>
-
+                    <button class="nav-link"
+                        type="button"
+                        data-reel-filter="events">
+                        Events
+                    </button>
                     <button class="nav-link"
                         type="button"
                         data-reel-filter="ai-videos">
