@@ -381,3 +381,31 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.key === 'ArrowLeft') showPrevious();
     });
 })();
+
+
+
+(() => {
+    const tabs = document.querySelectorAll('[data-reel-filter]');
+    const items = document.querySelectorAll('.reel-filter-item');
+
+    if (!tabs.length || !items.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const selectedCategory = tab.dataset.reelFilter;
+
+            tabs.forEach(item => item.classList.remove('active'));
+            tab.classList.add('active');
+
+            items.forEach(item => {
+                const category = item.dataset.reelCategory;
+
+                const shouldShow =
+                    selectedCategory === 'all' ||
+                    category === selectedCategory;
+
+                item.style.display = shouldShow ? '' : 'none';
+            });
+        });
+    });
+})();

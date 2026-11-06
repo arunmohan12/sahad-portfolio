@@ -9,49 +9,52 @@ use App\Services\YouTubePlaylistService;
 
 class HomeController extends Controller
 {
-   
-public function index(YouTubePlaylistService $youtubePlaylistService)
-{
-    // Existing image portfolio projects
-    $projects = PortfolioProject::query()
-        ->with('category')
-        ->where('is_active', true)
-        ->where('media_type', 'image')
-        ->whereHas('category', function ($query) {
-            $query->where('is_active', true);
-        })
-        ->orderBy('sort_order')
-        ->orderByDesc('project_date')
-        ->get();
 
-    // Video reels
-    $reels = PortfolioProject::query()
-        ->where('media_type', 'video')
-        ->where('project_type', 'reels')
-        ->where('is_active', true)
-        ->whereHas('category', function ($query) {
-            $query->where('is_active', true);
-        })
-        ->orderBy('sort_order')
-        ->orderByDesc('project_date')
-        ->get();
+    public function index(YouTubePlaylistService $youtubePlaylistService)
+    {
+        // Existing image portfolio projects
+        $projects = PortfolioProject::query()
+            ->with('category')
+            ->where('is_active', true)
+            ->where('media_type', 'image')
+            ->whereHas('category', function ($query) {
+                $query->where('is_active', true);
+            })
+            ->orderBy('sort_order')
+            ->orderByDesc('project_date')
+            ->get();
 
-    $skills = Skill::query()
-        ->where('is_active', true)
-        ->orderBy('sort_order')
-        ->get();
+        // Video reels
+        $reels = PortfolioProject::query()
+            ->where('media_type', 'video')
+            ->whereIn('project_type', [
+                'reels',
+                'real-estate-videos',
+                'ai-videos',
+            ])
+            ->where('is_active', true)
+            ->whereHas('category', function ($query) {
+                $query->where('is_active', true);
+            })
+            ->orderBy('sort_order')
+            ->orderByDesc('project_date')
+            ->get();
 
-    $siteSetting = SiteSetting::query()->first();
+        $skills = Skill::query()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
 
-    $videos = $youtubePlaylistService->getVideos();
+        $siteSetting = SiteSetting::query()->first();
 
-    return view('home', compact(
-        'projects',
-        'reels',
-        'skills',
-        'siteSetting',
-        'videos'
-    ));
-}
+        $videos = $youtubePlaylistService->getVideos();
 
+        return view('home', compact(
+            'projects',
+            'reels',
+            'skills',
+            'siteSetting',
+            'videos'
+        ));
+    }
 }

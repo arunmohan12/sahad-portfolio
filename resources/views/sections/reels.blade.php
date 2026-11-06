@@ -11,7 +11,7 @@
                 <div class="col-lg-4">
                     <div class="tp-breadcrumb-list tp_fade_anim" data-delay=".3">
                         <ul>
-                         
+
                             <li>Short Videos </li>
                         </ul>
                     </div>
@@ -34,9 +34,9 @@
                         </div>
 
                         <span class="tp-breadcrumb-shape d-none d-md-block tp_fade_anim"
-                              data-delay=".6">
+                            data-delay=".6">
                             <svg width="47" height="48" viewBox="0 0 47 48"
-                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.7799 10.1272L42.666 36.3139V10.1272H16.7799Z" fill="#FF5722" />
                                 <path d="M0.000141144 47.0136V0L47.0039 47.0136H0.000141144Z" fill="#111013" />
                             </svg>
@@ -50,11 +50,36 @@
 
 <section class="tp-reels-area pt-100 pb-100" id="reels">
     <div class="container">
+        <div class="tp-portfolio-inner-tab-wrap mb-50">
+            <nav>
+                <div class="nav nav-tabs" id="reel-category-tabs" role="tablist">
 
+                    <button class="nav-link active"
+                        type="button"
+                        data-reel-filter="all">
+                        All
+                    </button>
+
+                    <button class="nav-link"
+                        type="button"
+                        data-reel-filter="real-estate-videos">
+                        Real Estate
+                    </button>
+
+                    <button class="nav-link"
+                        type="button"
+                        data-reel-filter="ai-videos">
+                        AI Videos
+                    </button>
+
+                </div>
+            </nav>
+        </div>
         <div class="row g-4">
 
             @foreach($reels as $reel)
-            <div class="col-6 col-lg-4">
+            <div class="col-6 col-lg-4 reel-filter-item"
+                data-reel-category="{{ $reel->project_type }}">
                 <div class="tp-reel-card">
 
                     <button
