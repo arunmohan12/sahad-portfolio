@@ -12,9 +12,10 @@
 
         @include('sections.what-i-do')
         @include('sections.skills')
-        @include('sections.creatives')
-        @include('sections.experience')
         @include('sections.youtube-playlist')
+
+        @include('sections.experience')
+        @include('sections.creatives')
         @include('sections.footer')
 
     </div>

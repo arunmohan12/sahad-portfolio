@@ -8,15 +8,37 @@ $firstVideo = $videos[0];
 
         {{-- Section heading --}}
         <div class="row mb-50">
-            <div class="col-12">
-                <div class="pp-youtube-heading">
-                    <span class="pp-youtube-subtitle">VIDEO SHOWCASE</span>
 
-                    <h2>Watch My Latest Videos</h2>
 
-                    <p>
-                        Explore my latest videos, creative projects and visual stories.
-                    </p>
+            <div class="col-lg-3">
+                <div class="ca-team-subtitle-wrap mb-30 tp_fade_anim" data-delay=".3">
+                    <span class="ca-team-subtitle pp-team-subtitle-black"><span>[</span> VIDEO SHOWCASE <span>]</span></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ca-team-title-wrap mb-50">
+                    <h2 class="ca-section-title fs-100 lh-1 reveal-text">Watch My <br> Latest Videos</h2>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="h-100 d-flex justify-content-lg-end align-items-lg-end tp_fade_anim" data-delay=".4" data-fade-from="bottom" data-ease="bounce">
+                    <div class="tp-btn-group tp-btn-group-transparent mb-60">
+                           <a class="tp-btn-circle"
+               href="https://www.youtube.com/playlist?list=PLM9Fqr1_TgKI"
+               target="_blank" rel="noopener noreferrer">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.41379 3.30208C5.97452 3.05821 10.6092 1.55558 14 0C12.4438 3.39014 10.9406 8.02425 10.6973 11.585L8.35765 6.59331L1.14783 13.8037C1.02165 13.9295 0.850656 14.0001 0.672431 14C0.539461 14 0.409486 13.9605 0.298934 13.8866C0.188382 13.8128 0.102217 13.7077 0.0513353 13.5849C0.000453949 13.462 -0.0128613 13.3269 0.013072 13.1965C0.0390053 13.066 0.103024 12.9462 0.197034 12.8522L7.40683 5.64241L2.41379 3.30208Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                        <a class="tp-btn z-index-1"     href="https://www.youtube.com/playlist?list=PLM9Fqr1_TgKI" target="_blank" rel="noopener noreferrer">View in Youtube</a>
+                           <a class="tp-btn-circle"
+               href="https://www.youtube.com/playlist?list=PLM9Fqr1_TgKI"
+               target="_blank" rel="noopener noreferrer">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.41379 3.30208C5.97452 3.05821 10.6092 1.55558 14 0C12.4438 3.39014 10.9406 8.02425 10.6973 11.585L8.35765 6.59331L1.14783 13.8037C1.02165 13.9295 0.850656 14.0001 0.672431 14C0.539461 14 0.409486 13.9605 0.298934 13.8866C0.188382 13.8128 0.102217 13.7077 0.0513353 13.5849C0.000453949 13.462 -0.0128613 13.3269 0.013072 13.1965C0.0390053 13.066 0.103024 12.9462 0.197034 12.8522L7.40683 5.64241L2.41379 3.30208Z" fill="currentColor" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,17 +168,16 @@ $firstVideo = $videos[0];
 
                                 <div class="pp-youtube-item-channel">
 
-    @if (!empty($video['channel_thumbnail']))
-        <img
-            src="{{ $video['channel_thumbnail'] }}"
-            alt="{{ $video['channel_name'] }}"
-            loading="lazy"
-        >
-    @endif
+                                    @if (!empty($video['channel_thumbnail']))
+                                    <img
+                                        src="{{ $video['channel_thumbnail'] }}"
+                                        alt="{{ $video['channel_name'] }}"
+                                        loading="lazy">
+                                    @endif
 
-    <span>{{ $video['channel_name'] }}</span>
+                                    <span>{{ $video['channel_name'] }}</span>
 
-</div>
+                                </div>
 
                                 <div class="pp-youtube-item-stats">
 

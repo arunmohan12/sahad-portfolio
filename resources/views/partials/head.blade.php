@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="@yield('og_description', 'Creative portfolio of Sahad KP, Dubai, UAE.')">
 <meta name="twitter:image" content="{{ asset('assets/images/og-image.jpg') }}">
 
-<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
 @if (!empty($siteSetting?->hero_image))
     <link
         rel="preload"
