@@ -1616,7 +1616,7 @@ input[type=color] {
   }
 }
 .tp-breadcrumb-title span {
-  color: var(--tp-theme-primary);
+  color: #009fcd;
 }
 .tp-breadcrumb-title.fs-152 {
   font-size: 152px;
