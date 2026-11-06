@@ -13,7 +13,7 @@
         @include('sections.what-i-do')
         @include('sections.skills')
         @include('sections.youtube-playlist')
-
+        @include('sections.reels')
         @include('sections.experience')
         @include('sections.creatives')
         @include('sections.footer')

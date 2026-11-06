@@ -127,29 +127,34 @@ class PortfolioProjectForm
                     ->helperText('Upload exactly one image or video. Maximum file size: 100 MB.'),
 
 
-                FileUpload::make('thumbnail_path')
-                    ->label('Thumbnail Image')
-                    ->disk('s3')
-                    ->directory(
-                        fn(Get $get): string =>
-                        'portfolio/'
-                            . ($get('media_type') ?: 'image')
-                            . '/'
-                            . Str::slug($get('project_type') ?: 'uncategorized')
-                            . '/'
-                            . Str::slug($get('slug') ?: 'untitled-project')
-                    )
-                    ->acceptedFileTypes([
-                        'image/jpeg',
-                        'image/png',
-                        'image/webp',
-                        'image/avif',
-                    ])
-                    ->maxSize(10240)
-                    ->image()
-                    ->visible(fn(Get $get): bool => $get('media_type') === 'image')
-                    ->columnSpanFull()
-                    ->helperText('Optional. Upload a smaller image for the portfolio grid. The original image will open in the popup.'),
+                
+FileUpload::make('thumbnail_path')
+    ->label('Thumbnail Image')
+    ->disk('s3')
+    ->directory(
+        fn(Get $get): string =>
+        'portfolio/'
+            . ($get('media_type') ?: 'other')
+            . '/'
+            . Str::slug($get('project_type') ?: 'uncategorized')
+            . '/'
+            . Str::slug($get('slug') ?: 'untitled-project')
+    )
+    ->acceptedFileTypes([
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/avif',
+    ])
+    ->maxSize(10240)
+    ->image()
+    ->visible(fn(Get $get): bool => in_array(
+        $get('media_type'),
+        ['image', 'video'],
+        true
+    ))
+    ->columnSpanFull()
+    ->helperText('Optional. For videos, this image will be used as the reel preview thumbnail. For images, it will be used in the portfolio grid.'),
 
                 TextInput::make('location')
                     ->maxLength(255),

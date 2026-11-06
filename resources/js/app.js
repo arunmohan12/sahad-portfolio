@@ -208,3 +208,176 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+
+
+
+(() => {
+    const modal = document.getElementById('tpReelModal');
+    const player = document.getElementById('tpReelPlayer');
+    const modalTitle = document.getElementById('tpReelModalTitle');
+    const closeButton = document.getElementById('tpReelModalClose');
+    const prevButton = document.getElementById('tpReelPrev');
+    const nextButton = document.getElementById('tpReelNext');
+
+    if (!modal || !player || !closeButton) return;
+
+    // Keep popup outside GSAP ScrollSmoother containers
+    document.body.appendChild(modal);
+
+    const reelButtons = Array.from(
+        document.querySelectorAll('.tp-reel-preview')
+    );
+
+    const inlineVideos = Array.from(
+        document.querySelectorAll('.tp-reel-inline-video')
+    );
+
+    let currentReelIndex = -1;
+
+    // Pause all inline videos
+    const pauseInlineVideos = () => {
+        inlineVideos.forEach(video => video.pause());
+    };
+
+    // Load and play an inline video
+    const playInlineVideo = (video) => {
+        if (!video.src && video.dataset.src) {
+            video.src = video.dataset.src;
+            video.load();
+        }
+
+        video.play().catch(() => {
+            // Browser may prevent autoplay.
+        });
+    };
+
+    // Autoplay videos when visible
+    const reelObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+
+            if (modal.classList.contains('is-active')) {
+                video.pause();
+                return;
+            }
+
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                playInlineVideo(video);
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: [0, 0.5]
+    });
+
+    inlineVideos.forEach(video => {
+        reelObserver.observe(video);
+
+        video.addEventListener('playing', () => {
+            video.closest('.tp-reel-preview')?.classList.add('is-playing');
+        });
+
+        video.addEventListener('pause', () => {
+            video.closest('.tp-reel-preview')?.classList.remove('is-playing');
+        });
+    });
+
+    // Open popup and play selected reel
+    const playReel = (index) => {
+        if (index < 0 || index >= reelButtons.length) return;
+
+        currentReelIndex = index;
+
+        const button = reelButtons[index];
+
+        pauseInlineVideos();
+
+        player.pause();
+        player.src = button.dataset.reelUrl;
+        player.load();
+
+
+
+        modal.classList.add('is-active');
+        modal.setAttribute('aria-hidden', 'false');
+
+        document.body.style.overflow = 'hidden';
+
+        player.play().catch(() => {
+            // User can start playback using video controls.
+        });
+    };
+
+    // Close popup
+    const closeReel = () => {
+        player.pause();
+        player.removeAttribute('src');
+        player.load();
+
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+
+        document.body.style.overflow = '';
+
+        currentReelIndex = -1;
+
+        // Resume visible inline videos
+        inlineVideos.forEach(video => {
+            const rect = video.getBoundingClientRect();
+
+            const visible =
+                rect.bottom > 0 &&
+                rect.top < window.innerHeight &&
+                rect.right > 0 &&
+                rect.left < window.innerWidth;
+
+            if (visible) {
+                playInlineVideo(video);
+            }
+        });
+    };
+
+    // Next reel
+    const showNext = () => {
+        if (reelButtons.length <= 1) return;
+
+        playReel((currentReelIndex + 1) % reelButtons.length);
+    };
+
+    // Previous reel
+    const showPrevious = () => {
+        if (reelButtons.length <= 1) return;
+
+        playReel(
+            (currentReelIndex - 1 + reelButtons.length) % reelButtons.length
+        );
+    };
+
+    // Reel thumbnail click
+    reelButtons.forEach((button, index) => {
+        button.addEventListener('click', () => playReel(index));
+    });
+
+    prevButton?.addEventListener('click', showPrevious);
+    nextButton?.addEventListener('click', showNext);
+
+    closeButton.addEventListener('click', closeReel);
+
+    // Click outside popup to close
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeReel();
+        }
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (event) => {
+        if (!modal.classList.contains('is-active')) return;
+
+        if (event.key === 'Escape') closeReel();
+        if (event.key === 'ArrowRight') showNext();
+        if (event.key === 'ArrowLeft') showPrevious();
+    });
+})();
