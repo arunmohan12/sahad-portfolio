@@ -409,3 +409,59 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 })();
+
+
+// Portfolio Image Gallery Popup
+$(document).ready(function () {
+
+    if (typeof $.fn.magnificPopup === 'undefined') {
+        return;
+    }
+
+    // Creatives Gallery
+    $('#nav-profile .portfolio-image-popup').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 2],
+            tPrev: 'Previous',
+            tNext: 'Next',
+            tCounter: '%curr% of %total%'
+        },
+        image: {
+            titleSrc: 'title',
+            verticalFit: true
+        },
+        showCloseBtn: true,
+        closeBtnInside: true,
+        closeOnBgClick: true,
+        enableEscapeKey: true,
+        mainClass: 'mfp-fade',
+        removalDelay: 300
+    });
+
+    // Real Estate Gallery
+    $('#nav-contact .portfolio-image-popup').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 2],
+            tPrev: 'Previous',
+            tNext: 'Next',
+            tCounter: '%curr% of %total%'
+        },
+        image: {
+            titleSrc: 'title',
+            verticalFit: true
+        },
+        showCloseBtn: true,
+        closeBtnInside: true,
+        closeOnBgClick: true,
+        enableEscapeKey: true,
+        mainClass: 'mfp-fade',
+        removalDelay: 300
+    });
+
+});

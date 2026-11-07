@@ -41,6 +41,6 @@
 
 <script src="{{ asset('assets/js/slider-init.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/tp-cursor.js') }}"></script> 
+
 </body>
 </html>

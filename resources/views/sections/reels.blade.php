@@ -107,10 +107,7 @@
                         </span>
                     </button>
 
-                    <div class="tp-reel-info mt-15">
-                        <h4>{{ $reel->title }}</h4>
-                        <span>{{ ucwords(str_replace('-', ' ', $reel->project_type)) }}</span>
-                    </div>
+                   
 
                 </div>
             </div>
